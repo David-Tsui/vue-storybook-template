@@ -1,0 +1,36 @@
+import Vue from 'vue';
+
+import { storiesOf } from '@storybook/vue';
+import { action } from '@storybook/addon-actions';
+import centered from '@storybook/addon-centered/vue';
+import { withKnobs } from '@storybook/addon-knobs';
+import '@storybook/addon-console';
+import README from './README.md';
+
+import {{ properCase name }} from '.';
+
+Vue.component('{{ properCase name }}', {{ properCase name }});
+
+const paddedList = () => ({
+  template: '<div style="padding: 3rem 8rem;"><story/></div>',
+});
+
+storiesOf('{{ properCase name }}', module)
+  .addDecorator(withKnobs)
+  .addDecorator(paddedList)
+  // .addDecorator(centered)
+  .addParameters({
+    readme: {
+      sidebar: README,
+    },
+  })
+  .add('{{ properCase name }}', () => ({
+    methods: {
+      log() {
+        action('{{ properCase name }}')();
+      },
+    },
+    render(h) {
+      return <{{ properCase name }}></{{ properCase name }}>;
+    },
+  }));
